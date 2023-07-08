@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <link rel="stylesheet" href="./js/script.js">
+   <title>Завдання 6</title>
+</head>
+<body>
+   <script>
+      const productNames = ['Макарони', 'Картопля', 'Морозиво', 'Гречка', 'Квасоля', 'Цибуля'],
+         productPrices = [100, 400, 900, 300, 320, 850]
+
+      //Зчитування даних користувача
+      const userMoneySum = parseFloat(prompt('Введіть кількість грошей яку ви маєте')),
+         messageToUser1 = 'У вас достатньо коштів щоб купити:<br>',
+         messageToUser2 = 'Ви нічого не можете купити з цією сумою'
+
+      //Функція знаходження товарів які може дозволити собі користувач
+      function searchProductsPrices(productPrices, userMoneySum) {
+         const necessaryIndexes = []
+
+         for (let i = 0; i < productPrices.length; i++) {
+
+            if (userMoneySum >= productPrices[i])
+               necessaryIndexes.push(i)
+         }
+         return necessaryIndexes
+      }
+
+      //Функція виведення результату на екран
+
+      function showResult(necessaryIndexes, productNames, productPrices, messageToUser1) {
+         document.write(messageToUser1)
+
+         for (let i = 0; i < necessaryIndexes.length; i++) {
+            document.write(`${productNames[necessaryIndexes[i]]} за ${productPrices[necessaryIndexes[i]]} грн.<br>`)
+         }
+      }
+
+      //Виводимо результат
+      resultProductWithNecessaryPrice = searchProductsPrices(productPrices, userMoneySum)
+            if (resultProductWithNecessaryPrice.length === 0)
+         document.write(messageToUser2)
+      else showResult(resultProductWithNecessaryPrice, productNames, productPrices, messageToUser1)
+   </script>
+</body>
+</html>

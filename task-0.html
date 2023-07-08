@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>Завдання 1</title>
+</head>
+<body class="body-task">
+   <script>
+      // Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+
+       function getMinValue(arr) {
+         return Math.min(...arr)
+       }
+       function getStudentCategory(scores) {
+         let category
+         switch (getMinValue(scores)) {
+           case 1:
+           case 2:
+             category = 'двійочник'
+             break
+           case 3:
+             category = 'трійочник'
+             break
+           case 4:
+             category = 'хорошист'
+                break
+                break
+            case 5:
+            category = 'відмінник'
+                    break
+              default:
+              throw new Error('Некоректна оцінка')
+                 break
+               }
+               return category
+            }
+            let scores = [3, 2, 4, 5, 2, 4, 3]
+            let category = getStudentCategory(scores)
+            document.write(category)
+       
+   </script>
+</body>
+</html>
